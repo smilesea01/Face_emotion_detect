@@ -1,11 +1,7 @@
 ﻿<Properties StartupConfiguration="{46E40E95-EF31-4FB7-B899-7007629EC9A5}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Reconocimiento facial/Reconocimiento.cs">
-    <Files>
-      <File FileName="Reconocimiento facial/Reconocimiento.cs" Line="167" Column="54" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Face_220Recognize PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Reconocimiento_220facial_220v2.0 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

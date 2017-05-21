@@ -1,2 +1,0 @@
-# Face_emotion_detection
-대전동산고_과학부스_체험용

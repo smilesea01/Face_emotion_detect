@@ -358,7 +358,7 @@ namespace Reconocimiento_facial
             imageBoxFrameGrabber.ImageLocation = "img/1.png";
             lblNadie.Text = string.Empty;
             lblNumeroDetect.Text = string.Empty;
-            button4.Text = "connect";
+            button4.Text = "Camera Feed Connect";
             
         }
     }

@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reconocimiento facial v2.0", "Reconocimiento facial v2.0.csproj", "{46E40E95-EF31-4FB7-B899-7007629EC9A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Face Recognize", "Face Recognize.csproj", "{46E40E95-EF31-4FB7-B899-7007629EC9A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
