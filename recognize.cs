@@ -144,47 +144,82 @@ namespace Reconocimiento_facial
                     //Establecer el nùmero de rostros detectados
                     lblNumeroDetect.Text = facesDetected[0].Length.ToString();
                     lblNadie.Text = name;
+
                     Console.WriteLine(date + ": Face Detected!");
                     if (name != null)
                     {
-                      
-                        Console.WriteLine("Known Face :" + name);
-                        Bitmap bmp = new Bitmap(imageBoxFrameGrabber.ClientSize.Width, imageBoxFrameGrabber.ClientSize.Height);
 
-                        imageBoxFrameGrabber.DrawToBitmap(bmp, imageBoxFrameGrabber.ClientRectangle);
-                        String picname;
-                        picname = Convert.ToString(picnum1+".png");
-                        
-                        bmp.Save(Application.StartupPath + "/face_analysis/" + picname);
-                        Console.WriteLine("Saving Picture to Designated Location : " + Application.StartupPath + "/face_analysis/" + picname);
-                        picnum1 = picnum1 + 1;
-                        
-                        if (File.Exists(Application.StartupPath + "/face_analysis/" + picname))
-                            Console.WriteLine("File Saved");
+                        Console.WriteLine("Known Face :" + name);
+
+
+
+
+                        if (Directory.Exists(Application.StartupPath + "/face_analysis"))
+                        {
+                            Console.WriteLine("디렉토리 발견 저장합니다.");
+                        }
+
+
                         else
-                            Console.WriteLine("File saving Error");
+                        {
+                            Console.WriteLine("파일 저장 디렉토리가 존재 하지않습니다. 프로그램과 같은 위치에 있는지 확인해 주세요");
+                            Console.WriteLine("이 위치에 디렉토리를 만들까요? (Y/n)" + Application.StartupPath);
+                            string a = Console.ReadLine();
+                            if (a == "Y")
+                            {
+                                Console.WriteLine("디렉토리 생성 완료");
+                                Directory.CreateDirectory(Application.StartupPath + "/face_analysis");
+                            }
+                            else
+                            {
+                                Console.WriteLine("입력 오류 입니다. 프로그램 오류가 발생될 수 있습니다 (GDI+)");
+                            }
+                            String picname;
+                            picname = Convert.ToString(picnum1 + ".png");
+
+
+                            Bitmap bmp = new Bitmap(imageBoxFrameGrabber.ClientSize.Width, imageBoxFrameGrabber.ClientSize.Height);
+                            imageBoxFrameGrabber.DrawToBitmap(bmp, imageBoxFrameGrabber.ClientRectangle);
+                            bmp.Save(Application.StartupPath + "/face_analysis/" + picname);
+
+
+                            Console.WriteLine("Saving Picture to Designated Location : " + Application.StartupPath + "/face_analysis/" + picname);
+                            picnum1 = picnum1 + 1;
+
+                            if (File.Exists(Application.StartupPath + "/face_analysis/" + picname))
+                                Console.WriteLine("File Saved");
+                            else
+                            {
+                                Console.WriteLine("File saving Error");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Unknown Face, Register Face by clicking register btn");
                     }
 
-                    else
-                        Console.WriteLine("Unknown Face, Register Face by clicking register btn");
+
 
                 }
-                t = 0;
+                    t = 0;
 
-                //Nombres concatenados de todos los rostros reconocidos
-                for (int nnn = 0; nnn < facesDetected[0].Length; nnn++)
-                {
-                    names = names + NamePersons[nnn] + ", ";
-                }
+                    //Nombres concatenados de todos los rostros reconocidos
+                    for (int nnn = 0; nnn < facesDetected[0].Length; nnn++)
+                    {
+                        names = names + NamePersons[nnn] + ", ";
+                    }
 
-                //Mostrar los rostros procesados y reconocidos
-                imageBoxFrameGrabber.Image = currentFrame;
-                name = "";
-                //Borrar la lista de nombres            
-                NamePersons.Clear();
+                    //Mostrar los rostros procesados y reconocidos
+                    imageBoxFrameGrabber.Image = currentFrame;
+                    name = "";
+                    //Borrar la lista de nombres            
+                    NamePersons.Clear();
+                
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 MessageBox.Show(ex.Message);
             }
         }
@@ -216,9 +251,9 @@ namespace Reconocimiento_facial
             };
             #endregion
             
-            Console.WriteLine("Debugging Mode");
+            Console.WriteLine("====디버깅 모드====");
             imageBoxFrameGrabber.ImageLocation = "img/1.png";
-            Console.WriteLine(date+":" + "Form Activated");
+            Console.WriteLine(DateTime.Now.ToString("HH:mm:ss") +" ==" + "Form Activated");
         }
    
         
