@@ -61,23 +61,23 @@ namespace Reconocimiento_facial
             try
             {                
                 dbc.ObtenerBytesImagen();//부하는 각 이미지에 대한 얼굴과 라벨을               
-                Labels = dbc.Name; //Labelsinfo.Split('%');//separo los nombres de los usuarios 
-                NumLabels = dbc.TotalUser;// Convert.ToInt32(Labels[0]);//extraigo el total de usuarios registrados
+                Labels = dbc.Name; 
+                NumLabels = dbc.TotalUser;
                 ContTrain = NumLabels;
 
                 
-                for (int tf = 0; tf < NumLabels; tf++)//recorro el numero de nombres registrados
+                for (int tf = 0; tf < NumLabels; tf++)
                 {
                     con = tf;
                     Bitmap bmp = new Bitmap(dbc.ConvertByteToImg(con));
-                    //LoadFaces = "face" + tf + ".bmp";
-                    trainingImages.Add(new Image<Gray, byte>(bmp));//cargo la foto con ese nombre
-                    labels.Add(Labels[tf]);//cargo el nombre que se encuentre en la posicion del tf
+
+                    trainingImages.Add(new Image<Gray, byte>(bmp));
+                    labels.Add(Labels[tf]);
                     
                 }               
             }
             catch (Exception e)
-            {//Si la variable NumLabels es 0 me presenta el msj
+            {
                 MessageBox.Show(e + " 데이터베이스에는 얼굴이 없습니다, 적어도 하나의 얼굴을 추가하시기 바랍니다", "데이터베이스 자료 로드 오류", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
@@ -86,11 +86,11 @@ namespace Reconocimiento_facial
         {
             try
             {
-                //Inicia la Captura            
+                        
                 grabber = new Capture();
                 grabber.QueryFrame();
 
-                //Inicia el evento FrameGraber
+               
                 Application.Idle += new EventHandler(FrameGrabber);
                 this.button1.Enabled = true;
                 btn_detectar.Enabled = false;
@@ -108,7 +108,7 @@ namespace Reconocimiento_facial
             try
             {
 
-                //Obtener la secuencia del dispositivo de captura
+               
                 try
                 {
                     currentFrame = grabber.QueryFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
@@ -118,33 +118,33 @@ namespace Reconocimiento_facial
                     imageBoxFrameGrabber.Image = null;
                 }
 
-                //Convertir a escala de grises
+           
                 gray = currentFrame.Convert<Gray, Byte>();
 
-                //Detector de Rostros
+               
                 MCvAvgComp[][] facesDetected = gray.DetectHaarCascade(face, 1.2, 10, Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING, new Size(20, 20));
 
-                //Accion para cada elemento detectado
+               
                 foreach (MCvAvgComp f in facesDetected[0])
                 {
                     t = t + 1;
                     result = currentFrame.Copy(f.rect).Convert<Gray, byte>().Resize(640, 480, INTER.CV_INTER_CUBIC);
-                    //Dibujar el cuadro para el rostro
+             
                     currentFrame.Draw(f.rect, new Bgr(Color.LightGreen), 1);
 
                     NamePersons[t - 1] = name;
                     NamePersons.Add("");
-                    //Establecer el nùmero de rostros detectados
+                   
                     lblNumeroDetect.Text = facesDetected[0].Length.ToString();
-                    //lblNadie.Text = name;
+                
 
                 }
                 t = 0;
                 
-                //Mostrar los rostros procesados y reconocidos 
+              
                 imageBoxFrameGrabber.Image = currentFrame;
                 name = "";
-                //Borrar la lista de nombres            
+                      
                 NamePersons.Clear();
         }
         catch (Exception ex)
@@ -211,7 +211,7 @@ namespace Reconocimiento_facial
 
         private void menuStrip1_MouseDown(object sender, MouseEventArgs e)
         {
-            //para poder arrastrar el formulario sin bordes
+           
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
             w = this.Width;
@@ -222,29 +222,28 @@ namespace Reconocimiento_facial
         {
             try
             {
-                //Trained face counter
+              
                 ContTrain = ContTrain + 1;
 
-                //Get a gray frame from capture device
+               
                 gray = grabber.QueryGrayFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
 
-                //Face Detector
+              
                 MCvAvgComp[][] facesDetected = gray.DetectHaarCascade(face, 1.2, 10,Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING,new Size(20, 20));
 
-                //Action for each element detected
+                
                 foreach (MCvAvgComp f in facesDetected[0])
                 {
                     TrainedFace = currentFrame.Copy(f.rect).Convert<Gray, byte>();
                     break;
                 }
 
-                //resize face detected image for force to compare the same size with the 
-                //test image with cubic interpolation type method
+                
                 TrainedFace = result.Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
                 trainingImages.Add(TrainedFace);
                 labels.Add(txt_nombre.Text);
 
-                //Show face added in gray scale
+              
                 imageBox2.Image = TrainedFace;
                     dbc.ConvertImgToBinary(txt_nombre.Text,txt_codigo.Text, imageBox2.Image.Bitmap);
                 //}                
@@ -273,9 +272,9 @@ namespace Reconocimiento_facial
         {
             try
             {
-                Application.Idle -= new EventHandler(FrameGrabber);//Detenemos el evento de captura
-                grabber.Dispose();//Dejamos de usar la clase para capturar usar los dispositivos
-                imageBoxFrameGrabber.ImageLocation = "img/1.png";//reiniciamos la imagen del control
+                Application.Idle -= new EventHandler(FrameGrabber);
+                grabber.Dispose();
+                imageBoxFrameGrabber.ImageLocation = "img/1.png";
                 btn_detectar.Enabled = true;
                 button1.Enabled = false;
             }

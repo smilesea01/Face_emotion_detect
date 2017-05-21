@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 C:\Users\shink\Face_emotion_detect\bin\Debug\얼굴인식 베이스 프로그램.exe
 C:\Users\shink\Face_emotion_detect\bin\Debug\얼굴인식 베이스 프로그램.pdb
 C:\Users\shink\Face_emotion_detect\obj\Debug\Face Recognize.csprojResolveAssemblyReference.cache
@@ -8,3 +9,15 @@ C:\Users\shink\Face_emotion_detect\obj\Debug\Reconocimiento_facial.Reconocimient
 C:\Users\shink\Face_emotion_detect\obj\Debug\Face Recognize.csproj.GenerateResource.Cache
 C:\Users\shink\Face_emotion_detect\obj\Debug\얼굴인식 베이스 프로그램.exe
 C:\Users\shink\Face_emotion_detect\obj\Debug\얼굴인식 베이스 프로그램.pdb
+=======
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\bin\Debug\얼굴인식 베이스 프로그램.exe
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\bin\Debug\얼굴인식 베이스 프로그램.pdb
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\obj\Debug\Face Recognize.csprojResolveAssemblyReference.cache
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\obj\Debug\Reconocimiento_facial.emotion.resources
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\obj\Debug\Reconocimiento_facial.Registrar.resources
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\obj\Debug\faceemotion.Properties.Resources.resources
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\obj\Debug\Reconocimiento_facial.Reconocimiento.resources
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\obj\Debug\Face Recognize.csproj.GenerateResource.Cache
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\obj\Debug\얼굴인식 베이스 프로그램.exe
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\obj\Debug\얼굴인식 베이스 프로그램.pdb
+>>>>>>> Stashed changes

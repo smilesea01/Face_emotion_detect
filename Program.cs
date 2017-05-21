@@ -9,9 +9,7 @@ namespace Reconocimiento_facial
     static class Program
     {
         static DateTime date { get; }
-        /// <summary>
-        /// Punto de entrada principal para la aplicación.
-        /// </summary>
+    
         [STAThread]
         static void Main()
         {
