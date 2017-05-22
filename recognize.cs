@@ -143,7 +143,8 @@ namespace Reconocimiento_facial
                     lblNumeroDetect.Text = facesDetected[0].Length.ToString();
                     lblNadie.Text = name;
 
-                    Console.WriteLine(date + ": Face Detected!");
+                //    Console.WriteLine(date + ": Face Detected!");
+                    /*
                     if (name != null)
                     {
 
@@ -172,31 +173,33 @@ namespace Reconocimiento_facial
                             {
                                 Console.WriteLine("입력 오류 입니다. 프로그램 오류가 발생될 수 있습니다 (GDI+)");
                             }
-                            String picname;
-                            picname = Convert.ToString(picnum1 + ".png");
+                         
+
+                           
+                        }
+                        String picname;
+                        picname = Convert.ToString(picnum1 + ".png");
 
 
-                            Bitmap bmp = new Bitmap(imageBoxFrameGrabber.ClientSize.Width, imageBoxFrameGrabber.ClientSize.Height);
-                            imageBoxFrameGrabber.DrawToBitmap(bmp, imageBoxFrameGrabber.ClientRectangle);
-                            bmp.Save(Application.StartupPath + "/face_analysis/" + picname);
+                        Bitmap bmp = new Bitmap(imageBoxFrameGrabber.ClientSize.Width, imageBoxFrameGrabber.ClientSize.Height);
+                        imageBoxFrameGrabber.DrawToBitmap(bmp, imageBoxFrameGrabber.ClientRectangle);
+                        bmp.Save(Application.StartupPath + "/face_analysis/" + picname);
 
 
-                            Console.WriteLine("Saving Picture to Designated Location : " + Application.StartupPath + "/face_analysis/" + picname);
-                            picnum1 = picnum1 + 1;
-
-                            if (File.Exists(Application.StartupPath + "/face_analysis/" + picname))
-                                Console.WriteLine("File Saved");
-                            else
-                            {
-                                Console.WriteLine("File saving Error");
-                            }
+                        Console.WriteLine("Saving Picture to Designated Location : " + Application.StartupPath + "/face_analysis/" + picname);
+                        picnum1 = picnum1 + 1;
+                        if (File.Exists(Application.StartupPath + "/face_analysis/" + picname))
+                            Console.WriteLine("File Saved");
+                        else
+                        {
+                            Console.WriteLine("File saving Error");
                         }
                     }
                     else
                     {
                         Console.WriteLine("Unknown Face, Register Face by clicking register btn");
                     }
-
+                    */
 
 
                 }
@@ -327,6 +330,100 @@ namespace Reconocimiento_facial
         {
             emotion emotion = new emotion();
             emotion.Show();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            switch(checkBox1.Checked)
+            {
+                case true:
+                    timer1.Interval = (int)numericUpDown1.Value;
+                    timer1.Enabled = true;
+                   
+
+                    break;
+                case false:
+                    timer1.Enabled = false;
+                    Console.WriteLine("AutoSave Disabled");
+                    break;
+
+
+            }
+                
+
+        }
+        public void savepics() //Save pics when button or event has occurred
+        {
+
+
+
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            #region Diretory&save
+            if (name != null)
+            {
+
+                Console.WriteLine("Known Face :" + name);
+
+
+
+
+                if (Directory.Exists(Application.StartupPath + "/face_analysis"))
+                {
+                    Console.WriteLine("디렉토리 발견 저장합니다.");
+                }
+
+
+                else
+                {
+                    Console.WriteLine("파일 저장 디렉토리가 존재 하지않습니다. 프로그램과 같은 위치에 있는지 확인해 주세요");
+                    Console.WriteLine("이 위치에 디렉토리를 만들까요? (Y/n)" + Application.StartupPath);
+                    string a = Console.ReadLine();
+                    if (a == "Y")
+                    {
+                        Console.WriteLine("디렉토리 생성 완료");
+                        Directory.CreateDirectory(Application.StartupPath + "/face_analysis");
+                    }
+                    else
+                    {
+                        Console.WriteLine("입력 오류 입니다. 프로그램 오류가 발생될 수 있습니다 (GDI+)");
+                    }
+
+
+
+                }
+                String picname;
+                picname = Convert.ToString(picnum1 + ".png");
+
+
+                Bitmap bmp = new Bitmap(imageBoxFrameGrabber.ClientSize.Width, imageBoxFrameGrabber.ClientSize.Height);
+                imageBoxFrameGrabber.DrawToBitmap(bmp, imageBoxFrameGrabber.ClientRectangle);
+                bmp.Save(Application.StartupPath + "/face_analysis/" + picname);
+
+
+                Console.WriteLine("Saving Picture to Designated Location : " + Application.StartupPath + "/face_analysis/" + picname);
+                picnum1 = picnum1 + 1;
+                if (File.Exists(Application.StartupPath + "/face_analysis/" + picname))
+                    Console.WriteLine("File Saved");
+                else
+                {
+                    Console.WriteLine("File saving Error");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Unknown Face, Register Face by clicking register btn");
+            }
+            #endregion
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            label4.Text = Convert.ToString((double)numericUpDown1.Value * 0.001) + "Seconds";
+            timer1.Interval = (int) numericUpDown1.Value;
         }
 
         private void StateWin()

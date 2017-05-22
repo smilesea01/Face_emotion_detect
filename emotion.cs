@@ -32,8 +32,9 @@ namespace Reconocimiento_facial
         private void emotion_Load(object sender, EventArgs e)
         {
             Console.WriteLine(date +  ":: Emotion API 1.0 Initiated");
-
+            pictureBox1.ImageLocation = Application.StartupPath + "/img/1.png";
             button1.Text = "Getpics";
+
 
         }
 
