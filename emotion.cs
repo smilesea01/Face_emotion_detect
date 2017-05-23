@@ -12,10 +12,12 @@ using Emgu.CV;
 using Emgu.CV.Structure;
 using Emgu.CV.CvEnum;
 using System.Data.OleDb;
-//using System.Speech.Synthesis;
+
 using System.Media;
 using System.Runtime.InteropServices;
-using System.Runtime.InteropServices;
+using System.Net.Http.Headers;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 
 
@@ -51,13 +53,13 @@ namespace Reconocimiento_facial
         private void getPics()
         {
             Console.WriteLine("getPics is Activated");
-            int picsnum=2;
+            int picsnum=1;
             while(true)
             {
                 if (File.Exists(Application.StartupPath + "/face_analysis/" + picsnum + ".png"))
                 { listBox1.Items.Add(picsnum + ".png");
                     Console.WriteLine(date + ":: File {0}.png found", picsnum);
-                    picsnum++;
+                  
                    
                 }
                 else
@@ -66,6 +68,7 @@ namespace Reconocimiento_facial
                     Console.WriteLine("Total {0} Pics Found",picsnum-2);
                     break;
                 }
+  picsnum++;
             }
         }
 
@@ -114,6 +117,207 @@ namespace Reconocimiento_facial
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+        static byte[] GetImageAsByteArray(string imageFilePath)
+        {
+            FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
+            BinaryReader binaryReader = new BinaryReader(fileStream);
+            return binaryReader.ReadBytes((int)fileStream.Length);
+        }
+
+        async void MakeRequest(string imageFilePath)
+        {
+            var client = new HttpClient();
+
+            // Request headers
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "db40ac8e03ae4ef7bec43227ec452048");
+
+            string uri = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize?";
+            HttpResponseMessage response;
+            string responseContent;
+
+          
+            byte[] byteData = GetImageAsByteArray(imageFilePath);
+
+            using (var content = new ByteArrayContent(byteData))
+            {
+               
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+                response = await client.PostAsync(uri, content);
+                responseContent = response.Content.ReadAsStringAsync().Result;
+                Console.WriteLine(content);
+                Console.WriteLine(JsonHelper.FormatJson(responseContent));
+                getjsonRich.getjsonRiches(JsonHelper.FormatJson(responseContent));
+                richTextBox1.Text = JsonHelper.FormatJson(responseContent);
+            }
+
+            
+            Console.WriteLine(responseContent);
+            DeserializeEmotions();
+          
+ Reconocimiento_facial.emotion emo = new Reconocimiento_facial.emotion();
+                emo.getjson(responseContent);
+            
+            void DeserializeEmotions()
+            {
+                var emotions = JsonConvert.DeserializeObject<Emotion[]>(responseContent);
+                var scores = emotions[0].scores;
+                var highestScore = scores.Values.OrderByDescending(score => score).First();
+               
+                var highestEmotion = scores.Keys.First(key => scores[key] == highestScore);
+                Console.WriteLine(highestEmotion + " : " + highestScore);
+                faceemotion.result rs = new faceemotion.result();
+
+                rs.getresult(highestEmotion + " : " + highestScore);
+                rs.ShowDialog();
+
+               
+            }
+
+        }
+        public string jsonoutput;
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MakeRequest(pictureBox1.ImageLocation);
+        }
+
+        public void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        class getjsonRich : emotion 
+        { public static string responsedata;
+            public static void getjsonRiches(string Jsonbyte)
+            {
+                Console.WriteLine("getJsonrich activated" + JsonHelper.FormatJson(Jsonbyte));
+                responsedata = Jsonbyte;
+            }
+           
+            
+            public void printresult()
+            {
+                richTextBox1.Text = responsedata;
+            }
+        }
+        public class FaceRectangle
+        {
+            public int left { get; set; }
+            public int top { get; set; }
+            public int width { get; set; }
+            public int height { get; set; }
+        }
+
+        public class Emotion
+        {
+            public FaceRectangle faceRectangle { get; set; }
+            public IDictionary<string, double> scores { get; set; }
+        }
+        public void getjson(string json)
+        {
+            Console.WriteLine("getjson activated & {0}", json);
+            
+        }
+        //  [TestClass]
+        public class DeserializeEmotion
+        {
+         //   [TestMethod]
+            public void DeserializeEmotions()
+            {
+                var emotions = JsonConvert.DeserializeObject<Emotion[]>(JSON);
+                var scores = emotions[0].scores;
+                var highestScore = scores.Values.OrderByDescending(score => score).First();
+                //probably a more elegant way to do this.
+                var highestEmotion = scores.Keys.First(key => scores[key] == highestScore);
+                
+            }
+
+            private string JSON =
+                "[{'faceRectangle': {'left': 68,'top': 97,'width': 64,'height': 97},'scores': {'anger': 0.00300731952,'contempt': 5.14648448E-08,'disgust': 9.180124E-06,'fear': 0.0001912825,'happiness': 0.9875571,'neutral': 0.0009861537,'sadness': 1.889955E-05,'surprise': 0.008229999}}]";
+
+           
+        }
+
+        private void richTextBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+    }
+    class JsonHelper
+    {
+        private const string INDENT_STRING = "    ";
+        public static string FormatJson(string str)
+        {
+            var indent = 0;
+            var quoted = false;
+            var sb = new StringBuilder();
+            for (var i = 0; i < str.Length; i++)
+            {
+                var ch = str[i];
+                switch (ch)
+                {
+                    case '{':
+                    case '[':
+                        sb.Append(ch);
+                        if (!quoted)
+                        {
+                            sb.AppendLine();
+                            Enumerable.Range(0, ++indent).ForEach(item => sb.Append(INDENT_STRING));
+                        }
+                        break;
+                    case '}':
+                    case ']':
+                        if (!quoted)
+                        {
+                            sb.AppendLine();
+                            Enumerable.Range(0, --indent).ForEach(item => sb.Append(INDENT_STRING));
+                        }
+                        sb.Append(ch);
+                        break;
+                    case '"':
+                        sb.Append(ch);
+                        bool escaped = false;
+                        var index = i;
+                        while (index > 0 && str[--index] == '\\')
+                            escaped = !escaped;
+                        if (!escaped)
+                            quoted = !quoted;
+                        break;
+                    case ',':
+                        sb.Append(ch);
+                        if (!quoted)
+                        {
+                            sb.AppendLine();
+                            Enumerable.Range(0, indent).ForEach(item => sb.Append(INDENT_STRING));
+                        }
+                        break;
+                    case ':':
+                        sb.Append(ch);
+                        if (!quoted)
+                            sb.Append(" ");
+                        break;
+                    default:
+                        sb.Append(ch);
+                        break;
+                }
+            }
+            return sb.ToString();
+        }
+    }
+
+    static class Extensions
+    {
+        public static void ForEach<T>(this IEnumerable<T> ie, Action<T> action)
+        {
+            foreach (var i in ie)
+            {
+                action(i);
+            }
         }
     }
 }

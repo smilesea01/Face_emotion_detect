@@ -1,0 +1,29 @@
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\bin\Beta\bin\Debug\UsersFace.mdb
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\bin\Beta\얼굴인식 베이스 프로그램.exe.config
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\bin\Beta\얼굴인식 베이스 프로그램.exe.manifest
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\bin\Beta\얼굴인식 베이스 프로그램.application
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\bin\Beta\얼굴인식 베이스 프로그램.exe
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\bin\Beta\얼굴인식 베이스 프로그램.pdb
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\bin\Beta\Emgu.CV.dll
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\bin\Beta\Emgu.CV.UI.dll
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\bin\Beta\Emgu.Util.dll
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\bin\Beta\Microsoft.ProjectOxford.Common.dll
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\bin\Beta\Microsoft.ProjectOxford.Emotion.dll
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\bin\Beta\Newtonsoft.Json.dll
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\bin\Beta\System.Net.Http.Extensions.dll
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\bin\Beta\System.Net.Http.Primitives.dll
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\bin\Beta\Newtonsoft.Json.xml
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\bin\Beta\System.Net.Http.Extensions.xml
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\bin\Beta\System.Net.Http.Primitives.xml
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\obj\Beta\Face Recognize.csproj.App.config
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\obj\Beta\Reconocimiento_facial.emotion.resources
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\obj\Beta\Reconocimiento_facial.Registrar.resources
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\obj\Beta\faceemotion.Properties.Resources.resources
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\obj\Beta\Reconocimiento_facial.Reconocimiento.resources
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\obj\Beta\faceemotion.result.resources
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\obj\Beta\Face Recognize.csproj.GenerateResource.Cache
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\obj\Beta\얼굴인식 베이스 프로그램.exe.manifest
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\obj\Beta\얼굴인식 베이스 프로그램.application
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\obj\Beta\얼굴인식 베이스 프로그램.exe
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\obj\Beta\얼굴인식 베이스 프로그램.pdb
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\obj\Beta\Face Recognize.csprojResolveAssemblyReference.cache
