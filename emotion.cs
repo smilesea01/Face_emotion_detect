@@ -26,25 +26,10 @@ namespace Reconocimiento_facial
 
     public partial class emotion : Form
     {
-        
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        Rectangle sizeGripRectangle;
-        bool inSizeDrag = false;
-        const int GRIP_SIZE = 15;
-
-        int w = 0;
-        int h = 0;
         public emotion()
         {
             InitializeComponent();
         }
- 
-
         public DateTime date { get; }
         private void emotion_Load(object sender, EventArgs e)
         {
@@ -92,7 +77,14 @@ namespace Reconocimiento_facial
             getPics();
         }
 
-       
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [DllImportAttribute("user32.dll")]
+        private static extern int SendMessage(IntPtr hWnd,
+                         int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        private static extern bool ReleaseCapture();
        
         private bool dragging = false;
         private Point dragCursorPoint;
@@ -126,7 +118,6 @@ namespace Reconocimiento_facial
         {
 
         }
-
         static byte[] GetImageAsByteArray(string imageFilePath)
         {
             FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);

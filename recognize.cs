@@ -226,10 +226,8 @@ namespace Reconocimiento_facial
         }
   public DateTime date { get; }
        public void Reconocimiento_Load(object sender, EventArgs e)
-        {
-            checkBox2.Checked = false;
-            var handle = GetConsoleWindow();
-            ShowWindow(handle, SW_HIDE);
+        { 
+        
              
         #region Form Settings
 
@@ -317,14 +315,7 @@ namespace Reconocimiento_facial
         {
 
         }
-        private void menuStrip1_MouseDown(object sender, MouseEventArgs e)
-        {
 
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-            w = this.Width;
-            h = this.Height;
-        }
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
@@ -434,32 +425,6 @@ namespace Reconocimiento_facial
             label4.Text = Convert.ToString((double)numericUpDown1.Value * 0.001) + "Seconds";
             timer1.Interval = (int) numericUpDown1.Value;
         }
-        [DllImport("kernel32.dll")]
-        static extern IntPtr GetConsoleWindow();
-
-        [DllImport("user32.dll")]
-        static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
-
-        const int SW_HIDE = 0;
-        const int SW_SHOW = 5;
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-            var handle = GetConsoleWindow();
-
-            switch(checkBox2.Checked)
-            {
-                case true:
-                   ShowWindow(handle, SW_SHOW);
-                    break;
-                case false:
-                    ShowWindow(handle, SW_HIDE);
-                    break;
-            }
-
-           
-
-
-        }
 
         private void StateWin()
         {
@@ -478,7 +443,14 @@ namespace Reconocimiento_facial
             }
         }
 
-       
+        private void menuStrip1_MouseDown(object sender, MouseEventArgs e)
+        {
+     
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            w = this.Width;
+            h = this.Height;
+        }
 
         private void button4_Click(object sender, EventArgs e)
         {

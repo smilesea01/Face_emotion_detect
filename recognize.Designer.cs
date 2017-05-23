@@ -49,8 +49,6 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.imageBoxFrameGrabber)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -310,29 +308,6 @@
             this.label4.TabIndex = 61;
             this.label4.Text = "3Seconds";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label6.Location = new System.Drawing.Point(9, 3);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(355, 24);
-            this.label6.TabIndex = 62;
-            this.label6.Text = "얼굴표정 감정인식 베이스 프로그램 1.7M";
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.checkBox2.Location = new System.Drawing.Point(706, 359);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(194, 16);
-            this.checkBox2.TabIndex = 63;
-            this.checkBox2.Text = "개발자 모드 (디버깅 콘솔) 실행";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
-            // 
             // Reconocimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -340,8 +315,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(935, 572);
             this.ControlBox = false;
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.numericUpDown1);
@@ -392,7 +365,5 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckBox checkBox2;
     }
 }

@@ -7,14 +7,14 @@
     <framework targetVersion="4.5" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="얼굴인식 베이스 프로그램.exe.manifest" size="9190">
+    <dependentAssembly dependencyType="install" codebase="얼굴인식 베이스 프로그램.exe.manifest" size="9165">
       <assemblyIdentity name="얼굴인식 베이스 프로그램.exe" version="1.6.5.9" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>BNI7yvV4Vn2XkPnkB6Vls/IzoIEjYhSToZh4i5ZU4iQ=</dsig:DigestValue>
+        <dsig:DigestValue>HH3UTeXJHCUJLAtnhZo/Z6x3rE7oADRkfiQeYXkG2xI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
