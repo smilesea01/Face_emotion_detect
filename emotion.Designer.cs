@@ -98,7 +98,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(272, 24);
             this.label1.TabIndex = 57;
-            this.label1.Text = "Emotion API 1.0 by Shinkansan";
+            this.label1.Text = "Emotion API 1.3 by Shinkansan";
             // 
             // listBox1
             // 
@@ -120,7 +120,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 59;
-            this.button1.Text = "button1";
+            this.button1.Text = "불러오기";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -141,7 +141,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 61;
-            this.button2.Text = "Analysis";
+            this.button2.Text = "분석";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
