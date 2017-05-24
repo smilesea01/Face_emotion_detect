@@ -27,3 +27,32 @@
 \\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\obj\Beta\얼굴인식 베이스 프로그램.exe
 \\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\obj\Beta\얼굴인식 베이스 프로그램.pdb
 \\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\obj\Beta\Face Recognize.csprojResolveAssemblyReference.cache
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\bin\Beta\bin\Debug\UsersFace.mdb
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\bin\Beta\얼굴인식 베이스 프로그램.exe.config
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\bin\Beta\얼굴인식 베이스 프로그램.exe.manifest
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\bin\Beta\얼굴인식 베이스 프로그램.application
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\bin\Beta\얼굴인식 베이스 프로그램.exe
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\bin\Beta\얼굴인식 베이스 프로그램.pdb
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\bin\Beta\Emgu.CV.dll
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\bin\Beta\Emgu.CV.UI.dll
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\bin\Beta\Emgu.Util.dll
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\bin\Beta\Microsoft.ProjectOxford.Common.dll
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\bin\Beta\Microsoft.ProjectOxford.Emotion.dll
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\bin\Beta\Newtonsoft.Json.dll
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\bin\Beta\System.Net.Http.Extensions.dll
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\bin\Beta\System.Net.Http.Primitives.dll
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\bin\Beta\Newtonsoft.Json.xml
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\bin\Beta\System.Net.Http.Extensions.xml
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\bin\Beta\System.Net.Http.Primitives.xml
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\obj\Beta\Face Recognize.csproj.App.config
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\obj\Beta\Face Recognize.csprojResolveAssemblyReference.cache
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\obj\Beta\Reconocimiento_facial.emotion.resources
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\obj\Beta\Reconocimiento_facial.Registrar.resources
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\obj\Beta\faceemotion.Properties.Resources.resources
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\obj\Beta\Reconocimiento_facial.Reconocimiento.resources
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\obj\Beta\faceemotion.result.resources
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\obj\Beta\Face Recognize.csproj.GenerateResource.Cache
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\obj\Beta\얼굴인식 베이스 프로그램.exe.manifest
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\obj\Beta\얼굴인식 베이스 프로그램.application
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\obj\Beta\얼굴인식 베이스 프로그램.exe
+C:\Users\Shinkansan\Desktop\Face 1.7M.2\obj\Beta\얼굴인식 베이스 프로그램.pdb
