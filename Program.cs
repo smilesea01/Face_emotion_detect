@@ -17,9 +17,7 @@ namespace Reconocimiento_facial
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Reconocimiento());
 
-            Console.WriteLine("Face Recongizing Base Program Beta 0.1 - Daejeon Dongsan HS, DeepMind - Shinkansan");
-            Console.WriteLine("Program start" + date);
-            Console.WriteLine("This Program is fully compatible for Windows 10 Build 1047 ");
+            
 
         }
     }

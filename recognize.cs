@@ -156,7 +156,20 @@ namespace Reconocimiento_facial
                         if (emotiondata1 == null)
                         { }
                         else{
+                            switch(emotiondata1)
+                            {
+                                case "neutral":
+                                    emotiondata1 = "중립";
+                                    break;
+                                case "happiness":
+                                    emotiondata1 = "기쁜";
+                                    break;
+                                case "sadness":
+                                    emotiondata1 = "슬픔";
+                                    break;
 
+                            }
+                            label7.Text = emotiondata1;
                             currentFrame.Draw(emotiondata1, ref font, new Point(f.rect.X - 2, f.rect.Y - 2), new Bgr(Color.Red));
                         }
                         Reconocimiento_facial.emotion emo = new Reconocimiento_facial.emotion();
@@ -253,7 +266,7 @@ namespace Reconocimiento_facial
                 MessageBox.Show(ex.Message);
             }
         }
-        { 
+        
         public DateTime date { get; }
         public void Reconocimiento_Load(object sender, EventArgs e)
         {
@@ -570,7 +583,7 @@ namespace Reconocimiento_facial
                     //probably a more elegant way to do this.
                     var highestEmotion = scores.Keys.First(key => scores[key] == highestScore);
 
-                    score1 = highestEmotion + highestScore;
+                    score1 = highestEmotion;
                     rs.Getscore(score1);
                     Console.WriteLine("감정데이터 종합본 정상 등록" + score1);
 

@@ -56,3 +56,32 @@ C:\Users\Shinkansan\Desktop\Face 1.7M.2\obj\Beta\얼굴인식 베이스 프로�
 C:\Users\Shinkansan\Desktop\Face 1.7M.2\obj\Beta\얼굴인식 베이스 프로그램.application
 C:\Users\Shinkansan\Desktop\Face 1.7M.2\obj\Beta\얼굴인식 베이스 프로그램.exe
 C:\Users\Shinkansan\Desktop\Face 1.7M.2\obj\Beta\얼굴인식 베이스 프로그램.pdb
+C:\Users\shink\Face_emotion_detect\obj\Beta\Face Recognize.csproj.App.config
+C:\Users\shink\Face_emotion_detect\obj\Beta\Face Recognize.csprojResolveAssemblyReference.cache
+C:\Users\shink\Face_emotion_detect\obj\Beta\Reconocimiento_facial.emotion.resources
+C:\Users\shink\Face_emotion_detect\obj\Beta\Reconocimiento_facial.Registrar.resources
+C:\Users\shink\Face_emotion_detect\obj\Beta\faceemotion.Properties.Resources.resources
+C:\Users\shink\Face_emotion_detect\obj\Beta\Reconocimiento_facial.Reconocimiento.resources
+C:\Users\shink\Face_emotion_detect\obj\Beta\faceemotion.result.resources
+C:\Users\shink\Face_emotion_detect\obj\Beta\Face Recognize.csproj.GenerateResource.Cache
+C:\Users\shink\Face_emotion_detect\obj\Beta\얼굴인식 베이스 프로그램.exe
+C:\Users\shink\Face_emotion_detect\obj\Beta\얼굴인식 베이스 프로그램.pdb
+C:\Users\shink\Face_emotion_detect\bin\Beta\bin\Debug\UsersFace.mdb
+C:\Users\shink\Face_emotion_detect\bin\Beta\얼굴인식 베이스 프로그램.exe.config
+C:\Users\shink\Face_emotion_detect\bin\Beta\얼굴인식 베이스 프로그램.exe.manifest
+C:\Users\shink\Face_emotion_detect\bin\Beta\얼굴인식 베이스 프로그램.application
+C:\Users\shink\Face_emotion_detect\bin\Beta\얼굴인식 베이스 프로그램.exe
+C:\Users\shink\Face_emotion_detect\bin\Beta\얼굴인식 베이스 프로그램.pdb
+C:\Users\shink\Face_emotion_detect\bin\Beta\Emgu.CV.dll
+C:\Users\shink\Face_emotion_detect\bin\Beta\Emgu.CV.UI.dll
+C:\Users\shink\Face_emotion_detect\bin\Beta\Emgu.Util.dll
+C:\Users\shink\Face_emotion_detect\bin\Beta\Microsoft.ProjectOxford.Common.dll
+C:\Users\shink\Face_emotion_detect\bin\Beta\Microsoft.ProjectOxford.Emotion.dll
+C:\Users\shink\Face_emotion_detect\bin\Beta\Newtonsoft.Json.dll
+C:\Users\shink\Face_emotion_detect\bin\Beta\System.Net.Http.Extensions.dll
+C:\Users\shink\Face_emotion_detect\bin\Beta\System.Net.Http.Primitives.dll
+C:\Users\shink\Face_emotion_detect\bin\Beta\Newtonsoft.Json.xml
+C:\Users\shink\Face_emotion_detect\bin\Beta\System.Net.Http.Extensions.xml
+C:\Users\shink\Face_emotion_detect\bin\Beta\System.Net.Http.Primitives.xml
+C:\Users\shink\Face_emotion_detect\obj\Beta\얼굴인식 베이스 프로그램.exe.manifest
+C:\Users\shink\Face_emotion_detect\obj\Beta\얼굴인식 베이스 프로그램.application
