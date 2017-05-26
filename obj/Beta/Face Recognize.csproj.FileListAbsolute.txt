@@ -86,3 +86,4 @@ C:\Users\shink\Face_emotion_detect\bin\Beta\System.Net.Http.Primitives.xml
 C:\Users\shink\Face_emotion_detect\obj\Beta\얼굴인식 베이스 프로그램.exe.manifest
 C:\Users\shink\Face_emotion_detect\obj\Beta\얼굴인식 베이스 프로그램.application
 C:\Users\shink\Face_emotion_detect\obj\Beta\faceemotion.Startup.resources
+\\Mac\Home\얼굴인식 감정감지 베이스 프로그램 -git\Face_emotion_detect\obj\Beta\faceemotion.Startup.resources

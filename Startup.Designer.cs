@@ -40,7 +40,7 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(133)))), ((int)(((byte)(110)))));
             this.label1.Font = new System.Drawing.Font("Lucida Sans Unicode", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(364, 387);
+            this.label1.Location = new System.Drawing.Point(424, 483);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(496, 42);
             this.label1.TabIndex = 0;
