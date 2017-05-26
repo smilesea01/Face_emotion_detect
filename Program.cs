@@ -13,11 +13,17 @@ namespace Reconocimiento_facial
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Reconocimiento());
+            try
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new Reconocimiento());
 
-            
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("ERROR!!::" + ex);
+            }
 
         }
     }

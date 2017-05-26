@@ -138,14 +138,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="얼굴인식 베이스 프로그램.exe" size="22571512">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="얼굴인식 베이스 프로그램.exe" size="22576632">
       <assemblyIdentity name="얼굴인식 베이스 프로그램" version="1.0.5.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>k3Cio6mhmlMS2VJ9iHwiPdVZFmQ0iep6sGghLhGgNfc=</dsig:DigestValue>
+        <dsig:DigestValue>pK97U0a8s2L6AgWMWaWpevr2gCmQyST0jgjYQGn/1dY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

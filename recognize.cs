@@ -127,7 +127,7 @@ namespace Reconocimiento_facial
 
                 gray = currentFrame.Convert<Gray, Byte>();
                 Console.WriteLine("getscore" + emotiondata1);
-
+label7.Text = emotiondata1;
                 MCvAvgComp[][] facesDetected = gray.DetectHaarCascade(face, 1.2, 10, Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING, new Size(20, 20));
 
 
@@ -138,7 +138,7 @@ namespace Reconocimiento_facial
                     result = currentFrame.Copy(f.rect).Convert<Gray, byte>().Resize(100, 100, INTER.CV_INTER_CUBIC);
 
                     currentFrame.Draw(f.rect, new Bgr(Color.Blue), 1);
-
+                    
                     if (trainingImages.ToArray().Length != 0)
                     {
                       //  Console.WriteLine("getscore3" + emotiondata1);
@@ -152,23 +152,11 @@ namespace Reconocimiento_facial
                         name = recognizer.Recognize(result);
                        
                             Console.WriteLine(emotiondata1);
-
+                                
                         if (emotiondata1 == null)
                         { }
                         else{
-                            switch(emotiondata1)
-                            {
-                                case "neutral":
-                                    emotiondata1 = "중립";
-                                    break;
-                                case "happiness":
-                                    emotiondata1 = "기쁜";
-                                    break;
-                                case "sadness":
-                                    emotiondata1 = "슬픔";
-                                    break;
-
-                            }
+                            
                             label7.Text = emotiondata1;
                             currentFrame.Draw(emotiondata1, ref font, new Point(f.rect.X - 2, f.rect.Y - 2), new Bgr(Color.Red));
                         }
@@ -269,9 +257,19 @@ namespace Reconocimiento_facial
         
         public DateTime date { get; }
         public void Reconocimiento_Load(object sender, EventArgs e)
-        {
+        { 
 
-
+            faceemotion.Startup startup = new faceemotion.Startup();
+            startup.ShowDialog();
+            if (startup.IsDisposed)
+            {
+                MessageBox.Show("비정상적인 경로입니다!");
+                Application.Exit();
+            }
+            else
+            {
+                
+            }
             #region Form Settings
 
             SetGripRectangle();
@@ -347,6 +345,11 @@ namespace Reconocimiento_facial
         private void imageBoxFrameGrabber_Click(object sender, EventArgs e)
         {
 
+        }
+        public void set_result(string result)
+        {
+            String text7 = result;
+            label7.Text = text7;
         }
 
         private void lblNumeroDetect_Click(object sender, EventArgs e)
@@ -539,62 +542,96 @@ namespace Reconocimiento_facial
 
         async void MakeRequest(string imageFilePath)
         {
-            var client = new HttpClient();
-
-            // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "db40ac8e03ae4ef7bec43227ec452048");
-
-            string uri = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize?";
-            HttpResponseMessage response;
-            string responseContent;
-
-
-            byte[] byteData = GetImageAsByteArray(imageFilePath);
-
-            using (var content = new ByteArrayContent(byteData))
+            try
             {
+                var client = new HttpClient();
 
-                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-                response = await client.PostAsync(uri, content);
-                responseContent = response.Content.ReadAsStringAsync().Result;
-                Console.WriteLine(content);
+                // Request headers
+                client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "db40ac8e03ae4ef7bec43227ec452048");
 
-                Reconocimiento_facial.Reconocimiento rs = new Reconocimiento_facial.Reconocimiento();
-
-                rs.emotion_json = responseContent;
-                Console.WriteLine("이모션제이슨" + rs.emotion_json);
-                Console.WriteLine(JsonHelper.FormatJson(responseContent));
+                string uri = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize?";
+                HttpResponseMessage response;
+                string responseContent;
 
 
-                Console.WriteLine("Deemotion _ getmyjson activated");
+                byte[] byteData = GetImageAsByteArray(imageFilePath);
 
-                Console.WriteLine("De Emotion 동작");
-                //   [TestMethod]
-                DeserializeEmotions();
-                void DeserializeEmotions()
+                using (var content = new ByteArrayContent(byteData))
                 {
 
-                    Console.WriteLine("DeserializeEmotion 함수 호출됨");
-                    string score1;
+                    content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+                    response = await client.PostAsync(uri, content);
+                    responseContent = response.Content.ReadAsStringAsync().Result;
+                    Console.WriteLine(content);
 
-                    var emotions = JsonConvert.DeserializeObject<Emotion[]>(responseContent);
-                    var scores = emotions[0].scores;
-                    var highestScore = scores.Values.OrderByDescending(score => score).First();
-                    //probably a more elegant way to do this.
-                    var highestEmotion = scores.Keys.First(key => scores[key] == highestScore);
+                    Reconocimiento_facial.Reconocimiento rs = new Reconocimiento_facial.Reconocimiento();
 
-                    score1 = highestEmotion;
-                    rs.Getscore(score1);
-                    Console.WriteLine("감정데이터 종합본 정상 등록" + score1);
+                    rs.emotion_json = responseContent;
+                    Console.WriteLine("이모션제이슨" + rs.emotion_json);
+                    Console.WriteLine(JsonHelper.FormatJson(responseContent));
+
+
+                    Console.WriteLine("Deemotion _ getmyjson activated");
+
+                    Console.WriteLine("De Emotion 동작");
+                    //   [TestMethod]
+                    DeserializeEmotions();
+                    void DeserializeEmotions()
+                    {
+
+                        Console.WriteLine("DeserializeEmotion 함수 호출됨");
+                        string score1;
+
+                        var emotions = JsonConvert.DeserializeObject<Emotion[]>(responseContent);
+                        var scores = emotions[0].scores;
+                        var highestScore = scores.Values.OrderByDescending(score => score).First();
+                        //probably a more elegant way to do this.
+                        var highestEmotion = scores.Keys.First(key => scores[key] == highestScore);
+
+                        score1 = highestEmotion;
+                        switch (score1)
+                        {
+                            case "neutral":
+                                score1 = "중립";
+                                break;
+                            case "happiness":
+                                score1 = "기쁜";
+                                break;
+                            case "sadness":
+                                score1 = "슬픔";
+                                break;
+                            case "surprise":
+                                score1 = "놀람";
+                                break;
+                            case "disgust":
+                                score1 = "불쾌한";
+                                break;
+                            case "fear":
+                                score1 = "두랴운";
+                                break;
+                            case "contempt":
+                                score1 = "경멸";
+                                break;
+
+                        }
+                        rs.Getscore(score1);
+                        Reconocimiento_facial.Reconocimiento rec = new Reconocimiento();
+                        rs.set_result(score1);
+                        Console.WriteLine("감정데이터 종합본 정상 등록" + score1);
+
+
+                    }
+
+
+
 
 
                 }
-            
-        
-           
-
-
-    }
+            }
+            catch(Exception ex2)
+            {
+                Console.WriteLine(ex2);
+            }
 }
 
             public string myjson;

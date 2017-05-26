@@ -151,6 +151,12 @@
     <Compile Include="result.Designer.cs">
       <DependentUpon>result.cs</DependentUpon>
     </Compile>
+    <Compile Include="Startup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Startup.Designer.cs">
+      <DependentUpon>Startup.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="emotion.resx">
       <DependentUpon>emotion.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="result.resx">
       <DependentUpon>result.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Startup.resx">
+      <DependentUpon>Startup.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Face Recognize_TemporaryKey.pfx" />
     <None Include="packages.config" />
@@ -302,6 +311,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\System.Net.Http.Extensions.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Beta\img\StartPopupLoad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Beta\img\StartPopup.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
