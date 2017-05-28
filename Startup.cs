@@ -48,11 +48,11 @@ namespace faceemotion
                string md5_file = sr.ReadLine();
               
 
-
+                sr.Close();
                 Delay(1000);
                 label1.Text = "Verifying the hash...";
                 Delay(1000);
-                if ((VerifyMd5Hash(md5_file)))
+                if (!(VerifyMd5Hash(md5_file)))
                 {
                     label1.Text = "Verifying Complete : PASS";
                     Delay(2000);
@@ -74,7 +74,6 @@ namespace faceemotion
                         }
                         else
                         {
-                           
                             label1.Text = "File Integrity Verifying Failed";
                             MessageBox.Show("File " + fileinteg + "is not exist");
                             sf.Close();
@@ -97,38 +96,16 @@ namespace faceemotion
                     Delay(1000);
 
                    MessageBox.Show(faceemotion.Startup.ExecutingHash.GetExecutingFileHash() + "::" + md5_file);
-                     
                     if (md5_file == "force_excute=1")
                     {
                         label1.Text = "Force Exucte = 1 - InDev";
                         Delay(1000);
                         this.Hide();
-                        if (sr.ReadLine() == "get_md5=1")
-                        {
-                            label1.Text = "In Dev Enabled = 1";
-                            Delay(500);
-                            sr.Close();
-                            StreamWriter md5WR = new StreamWriter(Application.StartupPath + "/data_integrity.txt");
-                            md5WR.WriteLine(faceemotion.Startup.ExecutingHash.GetExecutingFileHash());
-                            
-                            md5WR.Close();
-                        }
                     }
                     else
                     {
-                        if (sr.ReadLine() == "get_md5=1")
-                        {
-                            label1.Text = "In Dev Enabled = 1";
-                            Delay(500);
-                            sr.Close();
-                            StreamWriter md5WR = new StreamWriter(Application.StartupPath + "/data_integrity.txt");
-                            md5WR.WriteLine(faceemotion.Startup.ExecutingHash.GetExecutingFileHash());
-                            md5WR.Close();
-
-                        }
                         label1.Text = "검증 실패  프로그램이 종료됩니다.";
                         Delay(2000);
-                        sr.Close();
                         Application.Exit();
                     }
                    
@@ -163,7 +140,7 @@ namespace faceemotion
             // Create a StringComparer an compare the hashes.
             StringComparer comparer = StringComparer.OrdinalIgnoreCase;
 
-            if (faceemotion.Startup.ExecutingHash.GetExecutingFileHash() == hash)
+            if (0 == comparer.Compare(faceemotion.Startup.ExecutingHash.GetExecutingFileHash(), hash))
             {
                 return true;
             }
